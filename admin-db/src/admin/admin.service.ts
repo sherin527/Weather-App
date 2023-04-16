@@ -16,20 +16,29 @@ export class AdminService {
   
 
   constructor(@InjectModel(citySchema.name) private cityModel:Model<cityDocument> ,private readonly httpService: HttpService){}
-  create(createAdminDto: CreateAdminDto, apiKey:string) : Promise<citySchema> {
-    console.log(apiKey);
-    if(apiKey==="ADMIN3214"){
+  // create(createAdminDto: CreateAdminDto, apiKey:string) : Promise<citySchema> {
+  //   console.log(apiKey);
+  //   if(apiKey==="ADMIN3214"){
+  //   const model = new this.cityModel();
+  //   model.cityName=createAdminDto.cityName;
+  //   console.log(model);
+  //   return model.save();
+  //   }
+
+  //   else{
+  //     return Promise.reject(new Error('fail'))
+  //     console.log('hi');
+  //       }
+  // }
+  create(createAdminDto: CreateAdminDto) : Promise<citySchema> {
+    
+    
     const model = new this.cityModel();
     model.cityName=createAdminDto.cityName;
     console.log(model);
     return model.save();
-    }
-
-    else{
-      return Promise.reject(new Error('fail'))
-      console.log('hi');
-        }
   }
+    
 
 
   findAll() {
